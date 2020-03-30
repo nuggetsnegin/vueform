@@ -18,20 +18,49 @@
 
           <section class="form">
             <div class="field">
-              <label for="name" class="label">Name</label>
-              <div class="control">
-                <input
-                  v-model="form.name"
-                  class="input"
-                  type="text"
-                  placeholder="Enter your name"
-                />
-              </div>
-              <!--control-->
+              <label for="first-name" class="label">First Name</label>
+              <input
+                v-model="form.firstName"
+                class="input"
+                type="text"
+                id="first-name"
+                placeholder="First Name"
+              />
+              <label for="middle-name" class="label"
+                >Middle Name <span>(optional)</span></label
+              >
+              <input
+                v-model="form.middleName"
+                class="input"
+                type="text"
+                id="middle-name"
+                placeholder="Middle Name"
+              />
+              <label for="last-name" class="label">Last Name</label>
+              <input
+                v-model="form.lastName"
+                class="input"
+                type="text"
+                id="last-name"
+                placeholder="Last Name"
+              />
+              <label for="email" class="label">Email</label>
+              <input
+                v-model="form.email"
+                class="input"
+                type="email"
+                id="email"
+                placeholder="email@email.com"
+              />
             </div>
             <!--field-->
           </section>
           <!-- form-->
+          <div class="output">
+            <li v-for="item in form">
+              {{ item }}
+            </li>
+          </div>
         </section>
         <!--section-->
       </div>
@@ -44,7 +73,10 @@
         el: "#app",
         data: {
           form: {
-            name: ""
+            firstName: "",
+            middleName: "",
+            lastName: "",
+            email: ""
           }
         }
       });
