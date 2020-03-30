@@ -16,9 +16,24 @@
 
           <hr />
 
-          <!-- form starts here -->
-          <section class="form"></section>
+          <section class="form">
+            <div class="field">
+              <label for="name" class="label">Name</label>
+              <div class="control">
+                <input
+                  v-model="form.name"
+                  class="input"
+                  type="text"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <!--control-->
+            </div>
+            <!--field-->
+          </section>
+          <!-- form-->
         </section>
+        <!--section-->
       </div>
     </div>
 
@@ -26,7 +41,12 @@
 
     <script>
       new Vue({
-        el: "#app"
+        el: "#app",
+        data: {
+          form: {
+            name: ""
+          }
+        }
       });
     </script>
   </body>
