@@ -23,12 +23,12 @@
               Start Application
             </button>
           </section>
-          <section class="form">
+          <section class="form" v-if="step === 2">
             <div class="step2">
               <div class="field">
                 <label for="first-name" class="label">First Name</label>
                 <input
-                  v-model="form.firstName"
+                  v-model="registration.firstName"
                   class="input"
                   type="text"
                   id="first-name"
@@ -39,7 +39,7 @@
                   >Middle Name <span>(optional)</span></label
                 >
                 <input
-                  v-model="form.middleName"
+                  v-model="registration.middleName"
                   class="input"
                   type="text"
                   id="middle-name"
@@ -48,7 +48,7 @@
 
                 <label for="last-name" class="label">Last Name</label>
                 <input
-                  v-model="form.lastName"
+                  v-model="registration.lastName"
                   class="input"
                   type="text"
                   id="last-name"
@@ -57,7 +57,7 @@
 
                 <label for="email" class="label">Email</label>
                 <input
-                  v-model="form.email"
+                  v-model="registration.email"
                   class="input"
                   type="email"
                   id="email"
@@ -65,10 +65,15 @@
                 />
 
                 <label for="dob" class="label">Date of Birth</label>
-                <input v-model="form.dob" class="input" type="date" id="dob" />
+                <input
+                  v-model="registration.dob"
+                  class="input"
+                  type="date"
+                  id="dob"
+                />
 
                 <label for="gender" class="label">Gender</label>
-                <select v-model="form.gender">
+                <select v-model="registration.gender">
                   <option disabled value="">Please select one</option>
                   <option>A</option>
                   <option>B</option>
@@ -94,16 +99,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
 
     <script>
-      new Vue({
+      const app = new Vue({
         el: "#app",
-        data: {
-          form: {
-            firstName: "",
-            middleName: "",
-            lastName: "",
-            email: "",
-            dob: "",
-            gender: ""
+        data() {
+          return {
+            step: 1,
+            registration: {
+              firstName: null,
+              middleName: null,
+              lastName: null,
+              email: null,
+              gender: null
+            }
+          };
+        },
+        methods: {
+          prev() {
+            this.step--;
+          },
+          next() {
+            this.step++;
+          },
+          submit() {
+            alert("Thanks for submitting your application!");
           }
         }
       });
