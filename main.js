@@ -6,4 +6,4 @@ Vue.component("name-form", {
   `
 });
 
-new Vue({ el: "#content" });
+new Vue({ el: "#app" });
