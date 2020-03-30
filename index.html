@@ -110,20 +110,91 @@
               <!-- <span>Selected: {{ gender }}</span> -->
             </div>
 
-            <div class="output">
-              <li>
-                {{ registration.firstName }}
-              </li>
-              <li>
-                {{ registration.lastName }}
-              </li>
+            <div class="cart">
+              <h3 class="title">Your cart</h3>
+              <ul class="cart-overview">
+                <li class="cart-item">
+                  {{ registration.firstName }}
+                </li>
+                <li class="cart-item">
+                  {{ registration.lastName }}
+                </li>
+              </ul>
+            </div>
+            <button class="continue" @click.prevent="next()">
+              Continue
+            </button>
+          </section>
+
+          <section class="page-5" v-if="step===5">
+            <h2 class="title">Step: 2/7: Select Sessions</h2>
+            <h3 class="title">
+              Select sessions for {{ registration.firstName }}
+            </h3>
+            <div class="session">
+              <p>Ski</p>
+              <p>Week 1</p>
+              <p>March 18 - March 30 | Show Details</p>
+              <span v-model="registration.cost">100.00</span>
+              <button class="add-cart" @click.prevent="next()">
+                Add to cart
+              </button>
+            </div>
+
+            <div class="cart">
+              <h3 class="title">Your cart</h3>
+              <ul class="cart-overview">
+                <li class="cart-item">
+                  {{ registration.firstName }}
+                </li>
+                <li class="cart-item">
+                  {{ registration.lastName }}
+                </li>
+                <li class="cart-item">
+                  {{ registration.cost }}
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="page-5" v-if="step===6">
+            <h2 class="title">Step: 3/7: Add Camp Store Deposits</h2>
+            <h3 class="title">
+              Add Camp Store Deposits
+            </h3>
+            <div class="deposit">
+              <label for="deposit"
+                >Camp Store Deposit for {{ registration.firstName }}</label
+              >
+              <input
+                type="number"
+                v-model="registration.deposit"
+                id="deposit"
+              />
+            </div>
+
+            <div class="cart">
+              <h3 class="title">Your cart</h3>
+              <ul class="cart-overview">
+                <li class="cart-item">
+                  {{ registration.firstName }}
+                </li>
+                <li class="cart-item">
+                  {{ registration.lastName }}
+                </li>
+                <li class="cart-item">
+                  {{ registration.cost }}
+                </li>
+                <li class="cart-item">
+                  {{ registration.deposit }}
+                </li>
+              </ul>
             </div>
             <button class="continue" @click.prevent="next()">
               Continue
             </button>
           </section>
         </section>
-        <!--section-->
       </div>
     </div>
 
@@ -140,7 +211,9 @@
               middleName: null,
               lastName: null,
               email: null,
-              gender: null
+              gender: null,
+              cost: null,
+              deposit: null
             }
           };
         },
