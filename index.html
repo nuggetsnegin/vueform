@@ -50,7 +50,9 @@
             </button>
           </section>
 
-          <section class="page-4" v-if="step ===4">
+          <section class="page-4" v-if="step === 4">
+            <h2 class="title">Step: 1/7: Select People From Registration</h2>
+
             <div class="field">
               <label for="first-name" class="label">First Name</label>
               <input
@@ -107,16 +109,19 @@
               </select>
               <!-- <span>Selected: {{ gender }}</span> -->
             </div>
+
+            <div class="output">
+              <li>
+                {{ registration.firstName }}
+              </li>
+              <li>
+                {{ registration.lastName }}
+              </li>
+            </div>
             <button class="continue" @click.prevent="next()">
               Continue
             </button>
           </section>
-
-          <!-- <div class="output">
-            <li v-for="item in form">
-              {{ item }}
-            </li>
-          </div> -->
         </section>
         <!--section-->
       </div>
