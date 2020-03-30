@@ -1,15 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue Form</title>
+    <title>Vue Forms</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.4/css/bulma.min.css"
+    />
   </head>
+
   <body>
-    <div id="app">
-      <name-form></name-form>
+    <div class="columns" id="app">
+      <div class="column is-two-thirds">
+        <section class="section">
+          <h1 class="title">Vue Forms!</h1>
+
+          <hr />
+
+          <!-- form starts here -->
+          <section class="form"></section>
+        </section>
+      </div>
     </div>
 
-    <script src="dist/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+
+    <script>
+      new Vue({
+        el: "#app"
+      });
+    </script>
   </body>
 </html>
