@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Vue Forms</title>
+    <title>Registration</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.4/css/bulma.min.css"
@@ -12,55 +12,80 @@
     <div class="columns" id="app">
       <div class="column is-two-thirds">
         <section class="section">
-          <h1 class="title">Vue Forms!</h1>
+          <h1 class="title">Registration for Cat Camp</h1>
 
           <hr />
 
+          <section v-if="step === 1" class="main">
+            <h2 class="title">Start a new Application</h2>
+            <h3>Cat Camp</h3>
+            <button class="application" @click.prevent="next()">
+              Start Application
+            </button>
+          </section>
           <section class="form">
-            <div class="field">
-              <label for="first-name" class="label">First Name</label>
-              <input
-                v-model="form.firstName"
-                class="input"
-                type="text"
-                id="first-name"
-                placeholder="First Name"
-              />
-              <label for="middle-name" class="label"
-                >Middle Name <span>(optional)</span></label
-              >
-              <input
-                v-model="form.middleName"
-                class="input"
-                type="text"
-                id="middle-name"
-                placeholder="Middle Name"
-              />
-              <label for="last-name" class="label">Last Name</label>
-              <input
-                v-model="form.lastName"
-                class="input"
-                type="text"
-                id="last-name"
-                placeholder="Last Name"
-              />
-              <label for="email" class="label">Email</label>
-              <input
-                v-model="form.email"
-                class="input"
-                type="email"
-                id="email"
-                placeholder="email@email.com"
-              />
+            <div class="step2">
+              <div class="field">
+                <label for="first-name" class="label">First Name</label>
+                <input
+                  v-model="form.firstName"
+                  class="input"
+                  type="text"
+                  id="first-name"
+                  placeholder="First Name"
+                />
+
+                <label for="middle-name" class="label"
+                  >Middle Name <span>(optional)</span></label
+                >
+                <input
+                  v-model="form.middleName"
+                  class="input"
+                  type="text"
+                  id="middle-name"
+                  placeholder="Middle Name"
+                />
+
+                <label for="last-name" class="label">Last Name</label>
+                <input
+                  v-model="form.lastName"
+                  class="input"
+                  type="text"
+                  id="last-name"
+                  placeholder="Last Name"
+                />
+
+                <label for="email" class="label">Email</label>
+                <input
+                  v-model="form.email"
+                  class="input"
+                  type="email"
+                  id="email"
+                  placeholder="email@email.com"
+                />
+
+                <label for="dob" class="label">Date of Birth</label>
+                <input v-model="form.dob" class="input" type="date" id="dob" />
+
+                <label for="gender" class="label">Gender</label>
+                <select v-model="form.gender">
+                  <option disabled value="">Please select one</option>
+                  <option>A</option>
+                  <option>B</option>
+                  <option>C</option>
+                </select>
+                <!-- <span>Selected: {{ gender }}</span> -->
+              </div>
+              <!--field-->
             </div>
-            <!--field-->
+            <!-- step 1-->
           </section>
           <!-- form-->
-          <div class="output">
+          <!-- <div class="output">
             <li v-for="item in form">
               {{ item }}
             </li>
-          </div>
+          </div> -->
         </section>
         <!--section-->
       </div>
@@ -76,7 +101,9 @@
             firstName: "",
             middleName: "",
             lastName: "",
-            email: ""
+            email: "",
+            dob: "",
+            gender: ""
           }
         }
       });
