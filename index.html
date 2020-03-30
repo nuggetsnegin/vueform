@@ -13,6 +13,9 @@
       <div class="column is-two-thirds">
         <section class="section">
           <h1 class="title">Registration for Cat Camp</h1>
+          <button v-if="step >= 1" class="return" @click.prevent="prev()">
+            Return Home
+          </button>
           <hr />
 
           <section v-if="step === 1" class="page-1">
@@ -24,7 +27,6 @@
           </section>
 
           <section v-if="step === 2" class="page-2">
-            <button class="return" @click.prevent="prev()">Return Home</button>
             <h2 class="title">Instructions</h2>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum
@@ -41,7 +43,6 @@
 
           <section class="page-3" v-if="step === 3">
             <h2 class="title">Step: 1/7: Select People From Registration</h2>
-            <button class="return" @click.prevent="prev()">Return Home</button>
 
             <h2 class="title">Select people you want to register:</h2>
             <button class="add-child" @click.prevent="next()">
